@@ -67,6 +67,20 @@ const createUser = (req, res) => {
     });
 };
 
+const login = (req, res) => {
+  const { email, password } = req.body;
+  User.findUserByCredentials(email, password)
+    .then((user) => {
+      const token = jwt.sign({ _id: user._id }, JWT_SECRET, {
+        expiresIn: "7d",
+      });
+      res.send({ token });
+    })
+    .catch((err) => {
+      res.status(401).send({ message: err.message });
+    });
+};
+
 module.exports = {
   getUsers,
   getUser,
