@@ -1,13 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const { createUser, login } = require("./controllers/users");
 const { auth } = require("./middlewares/auth");
-const cors = require("cors");
-const {
-  INVALID_DATA_ERROR,
-  NOT_FOUND_ERROR,
-  DEFAULT_ERROR,
-} = require("./utils/errors");
 
 const app = express();
 const { PORT = 3001 } = process.env;
@@ -32,6 +27,7 @@ app.use((req, res) => {
   res.status(404).send({ message: "Requested resource not found" });
 });
 
+// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, _next) => {
   const { statusCode = 500, message } = err;
   res.status(statusCode).send({
@@ -40,6 +36,4 @@ app.use((err, req, res, _next) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+app.listen(PORT);

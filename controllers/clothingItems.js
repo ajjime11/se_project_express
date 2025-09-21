@@ -1,9 +1,5 @@
 const ClothingItem = require("../models/clothingItem");
-const {
-  INVALID_DATA_ERROR,
-  NOT_FOUND_ERROR,
-  DEFAULT_ERROR,
-} = require("../utils/errors");
+const { INVALID_DATA_ERROR, DEFAULT_ERROR } = require("../utils/errors");
 
 const getItems = (req, res) => {
   ClothingItem.find({})
