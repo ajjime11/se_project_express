@@ -5,6 +5,7 @@ const {
   NOT_FOUND_ERROR,
   DEFAULT_ERROR,
 } = require("../utils/errors");
+const bcrypt = require("bcryptjs");
 
 const getUsers = (req, res) => {
   User.find({})
@@ -38,26 +39,28 @@ const getUser = (req, res) => {
 };
 
 const createUser = (req, res) => {
-  const { name, avatar } = req.body;
+  const { name, avatar, email, password } = req.body;
 
-  if (!name || name.length < 2 || name.length > 30) {
-    return res
-      .status(INVALID_DATA_ERROR)
-      .send({
-        message: "Invalid user name: must be between 2 and 30 characters.",
-      });
-  }
-
-  if (!avatar || !validator.isURL(avatar)) {
-    return res
-      .status(INVALID_DATA_ERROR)
-      .send({ message: "You must enter a valid URL." });
-  }
-
-  User.create({ name, avatar })
-    .then((user) => res.send({ data: user }))
-    .catch((err) => {
-      console.log(err);
+  bcrypt
+    .hash(password, 10)
+    .then((hash) => {
+      User.create({ name, avatar, email, password: hash })
+        .then((user) => {
+          const { password, ...userWithoutPassword } = user.toObject();
+          res.send({ data: userWithoutPassword });
+        })
+        .catch((err) => {
+          if (err.code === 11000) {
+            return res
+              .status(409)
+              .send({ message: "This email is already registered." });
+          }
+          res
+            .status(DEFAULT_ERROR)
+            .send({ message: "An error has occurred on the server." });
+        });
+    })
+    .catch(() => {
       res
         .status(DEFAULT_ERROR)
         .send({ message: "An error has occurred on the server." });
