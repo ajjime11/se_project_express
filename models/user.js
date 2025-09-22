@@ -13,7 +13,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator: function isUrl(v) { return validator.isURL(v); },
+      validator: function isUrl(v) {
+        return validator.isURL(v);
+      },
       message: "You must enter a valid URL",
     },
   },
@@ -22,7 +24,9 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
     validate: {
-      validator: function isEmail(v) { return validator.isEmail(v); },
+      validator: function isEmail(v) {
+        return validator.isEmail(v);
+      },
       message: "You must enter a valid email",
     },
   },
@@ -33,7 +37,10 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.statics.findUserByCredentials = function findUserByCredentials(email, password) {
+userSchema.statics.findUserByCredentials = function findUserByCredentials(
+  email,
+  password
+) {
   return this.findOne({ email })
     .select("+password")
     .then((user) => {

@@ -42,13 +42,15 @@ const deleteItem = (req, res) => {
     })
     .catch((err) => {
       if (err.name === "CastError") {
-        return res.status(400).send({ message: "Invalid item ID" });
+        return res
+          .status(INVALID_DATA_ERROR)
+          .send({ message: "Invalid item ID" });
       }
       if (err.name === "DocumentNotFoundError") {
         return res.status(404).send({ message: "Item not found" });
       }
       return res
-        .status(500)
+        .status(DEFAULT_ERROR)
         .send({ message: "An error has occurred on the server." });
     });
 };
@@ -63,13 +65,15 @@ const likeItem = (req, res) => {
     .then((item) => res.send({ data: item }))
     .catch((err) => {
       if (err.name === "CastError") {
-        return res.status(400).send({ message: "Invalid item ID" });
+        return res
+          .status(INVALID_DATA_ERROR)
+          .send({ message: "Invalid item ID" });
       }
       if (err.name === "DocumentNotFoundError") {
         return res.status(404).send({ message: "Item not found" });
       }
       return res
-        .status(500)
+        .status(DEFAULT_ERROR)
         .send({ message: "An error has occurred on the server." });
     });
 };
@@ -84,13 +88,15 @@ const dislikeItem = (req, res) => {
     .then((item) => res.send({ data: item }))
     .catch((err) => {
       if (err.name === "CastError") {
-        return res.status(400).send({ message: "Invalid item ID" });
+        return res
+          .status(INVALID_DATA_ERROR)
+          .send({ message: "Invalid item ID" });
       }
       if (err.name === "DocumentNotFoundError") {
         return res.status(404).send({ message: "Item not found" });
       }
       return res
-        .status(500)
+        .status(DEFAULT_ERROR)
         .send({ message: "An error has occurred on the server." });
     });
 };

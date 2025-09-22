@@ -60,7 +60,9 @@ const createUser = (req, res) => {
             })
             .catch((err) => {
               if (err.name === "ValidationError") {
-                return res.status(400).send({ message: `${err.message}` });
+                return res
+                  .status(INVALID_DATA_ERROR)
+                  .send({ message: `${err.message}` });
               }
               if (err.code === 11000) {
                 return res
@@ -68,24 +70,28 @@ const createUser = (req, res) => {
                   .send({ message: "This email is already registered." });
               }
               return res
-                .status(500)
+                .status(DEFAULT_ERROR)
                 .send({ message: "An error has occurred on the server." });
             })
         )
         .catch(() =>
           res
-            .status(500)
+            .status(DEFAULT_ERROR)
             .send({ message: "An error has occurred on the server." })
         );
     })
     .catch(() => {
-      res.status(500).send({ message: "An error has occurred on the server." });
+      res
+        .status(DEFAULT_ERROR)
+        .send({ message: "An error has occurred on the server." });
     });
 };
 const login = (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    return res.status(400).send({ message: "Email and password are required" });
+    return res
+      .status(INVALID_DATA_ERROR)
+      .send({ message: "Email and password are required" });
   }
   return User.findUserByCredentials(email, password)
     .then((user) => {
