@@ -35,7 +35,6 @@ This project is not a full-stack application and therefore cannot be published t
     ```
 
 ### API Endpoints
-(This section can be filled in with a list of your API endpoints as the project progresses. For example:
 - `POST /users/signup`: Register a new user
 - `POST /users/signin`: Log in a user
 - `GET /items`: Get a list of all items)
