@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const { createUser, login } = require("./controllers/users");
-const { auth } = require("./middlewares/auth");
 
 const app = express();
 const { PORT = 3001 } = process.env;
@@ -33,6 +32,4 @@ app.use((err, req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
+app.listen(PORT);
