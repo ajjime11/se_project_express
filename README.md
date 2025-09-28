@@ -1,9 +1,45 @@
-# WTWR (What to Wear?): Back End
-The back-end project is focused on creating a server for the WTWR application. You’ll gain a deeper understanding of how to work with databases, set up security and testing, and deploy web applications on a remote machine. The eventual goal is to create a server with an API and user authorization.
-## Running the Project
-`npm run start` — to launch the server 
+# SE_Project_Express
 
-`npm run dev` — to launch the server with the hot reload feature
+### Project Description
+This is the backend segment of the WTWR (What to Wear) project, a web application that helps users find the right clothes based on the weather. This repository contains the server-side code, including a robust API and user authorization features.
 
-### Testing
-Before committing your code, make sure you edit the file `sprint.txt` in the root folder. The file `sprint.txt` should contain the number of the sprint you're currently working on. For ex. 12
+The purpose of this project is to provide a comprehensive backend solution for the WTWR application. The project focuses on:
+- Building a server with a RESTful API
+- Implementing user authentication and authorization
+- Integrating with a database (likely MongoDB, given the typical stack)
+- Ensuring security and testing
+
+This project is not a full-stack application and therefore cannot be published to GitHub Pages. It is designed to be paired with a separate front-end repository.
+
+### Project Structure
+- `app.js`: The main server file.
+- `routes/`: Contains all the API routes.
+- `controllers/`: Handles the business logic for each route.
+- `models/`: Defines the data schemas.
+- `middlewares/`: Middleware functions for authentication and error handling.
+- `utils/`: Utility functions.
+
+### Installation & Setup
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/ajjime11/se_project_express.git](https://github.com/ajjime11/se_project_express.git)
+    cd se_project_express
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3.  **Start the server:**
+    ```bash
+    npm start
+    ```
+
+### API Endpoints
+- `POST /users/signup`: Register a new user
+- `POST /users/signin`: Log in a user
+- `GET /items`: Get a list of all items)
+
+### Technologies Used
+- Node.js
+- Express
+- MongoDB (or other database)
