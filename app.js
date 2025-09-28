@@ -18,8 +18,6 @@ const clothingItems = require("./routes/clothingItems");
 app.post("/signup", createUser);
 app.post("/signin", login);
 
-app.use(auth);
-
 app.use("/items", clothingItems);
 app.use("/users", users);
 
@@ -27,8 +25,7 @@ app.use((req, res) => {
   res.status(404).send({ message: "Requested resource not found" });
 });
 
-// eslint-disable-next-line no-unused-vars
-app.use((err, req, res, _next) => {
+app.use((err, req, res) => {
   const { statusCode = 500, message } = err;
   res.status(statusCode).send({
     message:
@@ -36,4 +33,6 @@ app.use((err, req, res, _next) => {
   });
 });
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
+});

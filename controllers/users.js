@@ -106,8 +106,11 @@ const login = (req, res) => {
 };
 
 const getCurrentUser = (req, res) => {
+  if (!req.user || !req.user._id) {
+    res.status(401).send({ message: "Authorization required" });
+    return;
+  }
   const userId = req.user._id;
-
   User.findById(userId)
     .orFail()
     .then((user) => res.send({ data: user }))
