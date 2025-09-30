@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const { createUser, login } = require("./controllers/users");
 const errorHandler = require("./middlewares/error-handler");
+const { errors } = require("celebrate");
 
 const app = express();
 const { PORT = 3001 } = process.env;
@@ -16,8 +17,9 @@ app.use(cors());
 const users = require("./routes/users");
 const clothingItems = require("./routes/clothingItems");
 
-app.post("/signup", createUser);
-app.post("/signin", login);
+const { validateUserBody, validateLogin } = require("./middlewares/validation");
+app.post("/signup", validateUserBody, createUser);
+app.post("/signin", validateLogin, login);
 
 app.use("/items", clothingItems);
 app.use("/users", users);
@@ -25,6 +27,8 @@ app.use("/users", users);
 app.use((req, res) => {
   res.status(404).send({ message: "Requested resource not found" });
 });
+
+app.use(errors());
 
 app.use(errorHandler);
 
