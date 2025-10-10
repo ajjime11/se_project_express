@@ -4,7 +4,7 @@
 
 # Link to frontend repo: https://github.com/ajjime11/se_project_react
 
-# Link to project pitch video:
+# Link to project pitch video: https://drive.google.com/file/d/1t3nKE09WM2USEuP8KLYoDGpm5oVzsi8M/view?usp=sharing 
 
 ### Project Description
 
