@@ -1,10 +1,10 @@
 # SE_Project_Express
 
-## Deployed project's domain name: https://ajjime11-what-to-wear.crabdance.com
+### Deployed project's domain name: https://ajjime11-what-to-wear.crabdance.com
 
-## Link to frontend repo: https://github.com/ajjime11/se_project_react
+### Link to frontend repo: https://github.com/ajjime11/se_project_react
 
-## Link to project pitch video: https://drive.google.com/file/d/1t3nKE09WM2USEuP8KLYoDGpm5oVzsi8M/view?usp=sharing 
+### Link to project pitch video: https://drive.google.com/file/d/1t3nKE09WM2USEuP8KLYoDGpm5oVzsi8M/view?usp=sharing 
 
 ### Project Description
 
