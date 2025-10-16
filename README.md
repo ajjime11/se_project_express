@@ -1,10 +1,10 @@
 # SE_Project_Express
 
-# Deployed project's domain name: https://ajjime11-what-to-wear.crabdance.com
+## Deployed project's domain name: https://ajjime11-what-to-wear.crabdance.com
 
-# Link to frontend repo: https://github.com/ajjime11/se_project_react
+## Link to frontend repo: https://github.com/ajjime11/se_project_react
 
-# Link to project pitch video: https://drive.google.com/file/d/1t3nKE09WM2USEuP8KLYoDGpm5oVzsi8M/view?usp=sharing 
+## Link to project pitch video: https://drive.google.com/file/d/1t3nKE09WM2USEuP8KLYoDGpm5oVzsi8M/view?usp=sharing 
 
 ### Project Description
 
@@ -28,22 +28,6 @@ This project is not a full-stack application and therefore cannot be published t
 - `middlewares/`: Middleware functions for authentication and error handling.
 - `utils/`: Utility functions.
 
-### Installation & Setup
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/ajjime11/se_project_express.git](https://github.com/ajjime11/se_project_express.git)
-    cd se_project_express
-    ```
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
-3.  **Start the server:**
-    ```bash
-    npm start
-    ```
-
 ### API Endpoints
 
 - `POST /users/signup`: Register a new user
@@ -54,4 +38,4 @@ This project is not a full-stack application and therefore cannot be published t
 
 - Node.js
 - Express
-- MongoDB (or other database)
+- MongoDB
