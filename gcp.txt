@@ -1,0 +1,3 @@
+USER: itsacliche2023
+EXTERNAL: 34.82.90.83
+SUBDOMAIN: ajjime11-what-to-wear
